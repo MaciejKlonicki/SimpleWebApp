@@ -1,0 +1,17 @@
+.first-table-pos {
+    position: relative;
+    top: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 100px;
+  }
+
+  th {
+    position: relative;
+    text-align: left;
+  }
+
+  li {
+    position: relative;
+    right: 32px;
+  }
