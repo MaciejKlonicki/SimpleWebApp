@@ -11,26 +11,29 @@ const WhatToDo = () => {
     }, []);
   
     return (
-      <div className='first-table-pos w-100'>
-        <h1 style={{position: "relative", right: "790px", top: "50px"}}>Your Todos</h1>
-        <table style={{marginTop: "100px"}} className='table table-dark'>
+      <div className='first-table-pos'>
+        <h1 style={{position: "relative", right: "790px"}}>Your Todos</h1>
+        <table className='table table-dark'>
             <thead>
                 <tr>
+                    <th>Title</th>
                     <th>Description</th>
-                    <th>Target Date</th>
-                    <th>Is It Done?</th>
-                    <th></th>
-                    <th></th>
+                    <th>Done</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <ul>
-                    {todos.map((todo) => (
-                        <li key={todo.id}>
-                            <td>{todo.description}</td>
-                        </li>
-                    ))}
-                </ul>
+              {todos.map((todo) => (
+                <tr>
+                    <td>{todo.title}</td>
+                    <td>{todo.description}</td>
+                    <td>{todo.done}</td>
+                    <td>
+                      <button>Delete</button>
+                      <button>Edit</button>
+                    </td>
+                </tr>
+              ))}
             </tbody>
         </table>
       </div>

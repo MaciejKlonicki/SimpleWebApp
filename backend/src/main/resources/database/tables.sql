@@ -1,12 +1,11 @@
 --liquibase formatted sql
---changeset mklonicki:1
+--changeset mklonicki:5
 
 CREATE TABLE TODO (
     id INT PRIMARY KEY,
-    username VARCHAR(100) NOT NULL,
+    title VARCHAR(100) NOT NULL,
     description VARCHAR(500) NOT NULL,
-    targetDate DATE,
-    done BOOLEAN
+    done VARCHAR(50) NOT NULL
 );
 
 CREATE SEQUENCE todo_id_sequence
