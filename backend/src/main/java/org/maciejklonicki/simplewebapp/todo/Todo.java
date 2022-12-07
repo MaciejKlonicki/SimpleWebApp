@@ -1,10 +1,14 @@
 package org.maciejklonicki.simplewebapp.todo;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
 public class Todo {
 
-    private int id;
+    @Id
+    private Integer id;
     private String username;
     private String description;
     private LocalDate targetDate;
@@ -16,6 +20,9 @@ public class Todo {
         this.description = description;
         this.targetDate = targetDate;
         this.done = done;
+    }
+
+    public Todo() {
     }
 
     public int getId() {

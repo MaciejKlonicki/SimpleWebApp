@@ -1,29 +1,12 @@
 import React, {Component} from 'react';
 import './App.css';
-import axios from 'axios';
+import HeaderComp  from './components/HeaderComp';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {message: ''};
-    }
-
-    componentDidMount() {
-        const url = 'http://localhost:8080/sayhellojsp';
-        axios.get(url).then(response => {
-            console.log('response : ');
-            console.log(response);
-            this.setState({message: response.data});
-        }).catch(error => {
-            console.log('error : ');
-            console.log(error);
-        });
-    }
-
     render() {
         return (
             <div className="App">
-                Message : {this.state.message}
+                <HeaderComp />
             </div>
         );
     }
