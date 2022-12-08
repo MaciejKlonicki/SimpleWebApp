@@ -13,6 +13,7 @@ const WhatToDo = () => {
     return (
       <div className='first-table-pos'>
         <h1 style={{position: "relative", right: "790px"}}>Your Todos</h1>
+        <button style={{position: "relative", left: "849px", bottom: "20px"}} type="button" class="btn btn-success">Add todo</button>
         <table className='table table-dark'>
             <thead>
                 <tr>
@@ -29,8 +30,8 @@ const WhatToDo = () => {
                     <td>{todo.description}</td>
                     <td>{todo.done}</td>
                     <td>
-                      <button>Delete</button>
-                      <button>Edit</button>
+                      <button type="button" class="btn btn-danger" style={{marginRight: "20px"}}>Delete</button>
+                      <button type="button" class="btn btn-primary">Edit</button>
                     </td>
                 </tr>
               ))}
