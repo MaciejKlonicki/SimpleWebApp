@@ -1,9 +1,6 @@
 package org.maciejklonicki.simplewebapp.todo;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,8 +16,23 @@ public class TodoController {
     }
 
     @GetMapping
-    public List<Todo> getAllTodos () {
+    public List<Todo> getAllTodos() {
         return todoService.getAllTodos();
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteTodo (@PathVariable Integer id) {
+        todoService.deleteTodo(id);
+    }
+
+    @PostMapping
+    public Todo addNewTodo(@RequestBody Todo todo) {
+        return todoService.addNewTodo(todo);
+    }
+
+    @PutMapping("/")
+    public Todo updateTodo (@RequestBody Todo todo) {
+        return todoService.updateTodo(todo);
     }
 
 }

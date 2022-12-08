@@ -1,5 +1,6 @@
 package org.maciejklonicki.simplewebapp.todo;
 
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,5 +16,22 @@ public class TodoService {
 
     public List<Todo> getAllTodos() {
         return todoRepository.findAll();
+    }
+
+    public void deleteTodo(Integer id) {
+        todoRepository.deleteById(id);
+    }
+
+    public Todo addNewTodo(Todo todo) {
+        return todoRepository.save(todo);
+    }
+
+    @Transactional
+    public Todo updateTodo(Todo todo) {
+        Todo editTodo = todoRepository.findById(todo.getId()).orElseThrow();
+        editTodo.setTitle(todo.getTitle());
+        editTodo.setDescription(todo.getDescription());
+        editTodo.setDone(todo.getDone());
+        return editTodo;
     }
 }

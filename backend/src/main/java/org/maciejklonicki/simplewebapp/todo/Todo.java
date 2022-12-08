@@ -2,43 +2,48 @@ package org.maciejklonicki.simplewebapp.todo;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-
 @Entity
 public class Todo {
 
     @Id
+    @SequenceGenerator(
+            name = "todo_id_sequence",
+            sequenceName = "todo_id_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "todo_id_sequence"
+    )
     private Integer id;
-    private String username;
+    private String title;
     private String description;
-    private LocalDate targetDate;
-    private boolean done;
+    private String done;
 
-    public Todo(int id, String username, String description, LocalDate targetDate, boolean done) {
+    public Todo(Integer id, String title, String description, String done) {
         this.id = id;
-        this.username = username;
+        this.title = title;
         this.description = description;
-        this.targetDate = targetDate;
         this.done = done;
     }
 
     public Todo() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getTitle() {
+        return title;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -49,19 +54,11 @@ public class Todo {
         this.description = description;
     }
 
-    public LocalDate getTargetDate() {
-        return targetDate;
-    }
-
-    public void setTargetDate(LocalDate targetDate) {
-        this.targetDate = targetDate;
-    }
-
-    public boolean isDone() {
+    public String getDone() {
         return done;
     }
 
-    public void setDone(boolean done) {
+    public void setDone(String done) {
         this.done = done;
     }
 
@@ -69,10 +66,9 @@ public class Todo {
     public String toString() {
         return "Todo{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
+                ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", targetDate=" + targetDate +
-                ", done=" + done +
+                ", done='" + done + '\'' +
                 '}';
     }
 }
