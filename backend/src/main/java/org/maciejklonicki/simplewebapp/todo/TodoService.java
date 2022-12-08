@@ -18,12 +18,12 @@ public class TodoService {
         return todoRepository.findAll();
     }
 
-    public Todo addNewTodo(Todo todo) {
-        return todoRepository.save(todo);
-    }
-
     public void deleteTodo(Integer id) {
         todoRepository.deleteById(id);
+    }
+
+    public Todo addNewTodo(Todo todo) {
+        return todoRepository.save(todo);
     }
 
     @Transactional

@@ -1,12 +1,20 @@
 package org.maciejklonicki.simplewebapp.todo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Todo {
 
     @Id
+    @SequenceGenerator(
+            name = "todo_id_sequence",
+            sequenceName = "todo_id_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "todo_id_sequence"
+    )
     private Integer id;
     private String title;
     private String description;
