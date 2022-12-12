@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TodoService {
@@ -26,12 +27,12 @@ public class TodoService {
         return todoRepository.save(todo);
     }
 
-    @Transactional
-    public Todo updateTodo(Todo todo) {
-        Todo editTodo = todoRepository.findById(todo.getId()).orElseThrow();
-        editTodo.setTitle(todo.getTitle());
-        editTodo.setDescription(todo.getDescription());
-        editTodo.setDone(todo.getDone());
-        return editTodo;
+    public Todo updateTodo(Todo todo, Integer id) {
+        Optional<Todo> optionalTodo = todoRepository.findById(id);
+        Todo oldTodo = optionalTodo.get();
+        oldTodo.setTitle(todo.getTitle());
+        oldTodo.setDescription(todo.getDescription());
+        oldTodo.setDone(todo.getDone());
+        return todoRepository.save(oldTodo);
     }
 }

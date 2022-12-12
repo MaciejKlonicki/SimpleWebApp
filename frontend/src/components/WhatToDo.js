@@ -47,7 +47,7 @@ const WhatToDo = () => {
                     <td>{todo.done}</td>
                     <td>
                       <Button onClick={() => remove(todo.id)} type="button" className="btn btn-danger" style={{marginRight: "20px", position: "relative", right: "50px"}}>Delete</Button>
-                      <Button style={{position: "relative", right: "50px"}} className="btn btn-primary"><Link style={{color: 'inherit', textDecoration: 'inherit'}} to="/todos/edit">Edit</Link></Button>
+                      <Button style={{position: "relative", right: "50px"}} className="btn btn-primary"><Link style={{color: 'inherit', textDecoration: 'inherit'}} to="/todos/">Edit</Link></Button>
                     </td>
                 </tr>
               ))}

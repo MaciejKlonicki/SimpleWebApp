@@ -30,9 +30,9 @@ public class TodoController {
         return todoService.addNewTodo(todo);
     }
 
-    @PutMapping("/")
-    public Todo updateTodo (@RequestBody Todo todo) {
-        return todoService.updateTodo(todo);
+    @PutMapping("/edit/{id}")
+    public Todo updateTodo (@RequestBody Todo todo, @PathVariable Integer id) {
+        return todoService.updateTodo(todo, id);
     }
 
 }
