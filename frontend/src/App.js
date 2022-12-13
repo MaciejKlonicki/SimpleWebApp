@@ -13,7 +13,7 @@ const App = () => {
             <Routes>
                 <Route path='/todos' exact={true} element={<WhatToDo/>} />
                 <Route path='/todos/new' element={<AddTodo/>}/>
-                <Route path='/todos/:id' element={<EditTodo/>}/>
+                <Route path='/todos/edit/:id' element={<EditTodo/>}/>
             </Routes>
         </Router>
     )

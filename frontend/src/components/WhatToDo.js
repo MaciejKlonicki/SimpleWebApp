@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './WhatToDo.css';
 
 const WhatToDo = () => {
 
+    let navigate = useNavigate();
     const [todos, setTodos] = useState([]);
   
     useEffect(() => {
@@ -24,6 +25,11 @@ const WhatToDo = () => {
         let updateTodo = [...todos].filter(i => i.id !== id);
         setTodos(updateTodo);
       });
+    }
+
+    const editTodo = (id) => {
+      let path = `/todos/edit/${id}`
+      navigate(path);
     }
   
     return (
@@ -47,7 +53,7 @@ const WhatToDo = () => {
                     <td>{todo.done}</td>
                     <td>
                       <Button onClick={() => remove(todo.id)} type="button" className="btn btn-danger" style={{marginRight: "20px", position: "relative", right: "50px"}}>Delete</Button>
-                      <Button style={{position: "relative", right: "50px"}} className="btn btn-primary"><Link style={{color: 'inherit', textDecoration: 'inherit'}} to="/todos/">Edit</Link></Button>
+                      <Button onClick={() => editTodo(todo.id)} style={{position: "relative", right: "50px"}} className="btn btn-primary">Edit</Button>
                     </td>
                 </tr>
               ))}
