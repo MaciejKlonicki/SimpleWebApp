@@ -35,4 +35,8 @@ public class TodoService {
         oldTodo.setDone(todo.getDone());
         return todoRepository.save(oldTodo);
     }
+
+    public Todo getSingleTodo(Integer id) {
+        return todoRepository.findById(id).orElseThrow();
+    }
 }

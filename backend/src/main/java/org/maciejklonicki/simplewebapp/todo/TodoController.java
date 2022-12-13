@@ -20,6 +20,11 @@ public class TodoController {
         return todoService.getAllTodos();
     }
 
+    @GetMapping("/{id}")
+    public Todo getSingleTodo(@PathVariable Integer id) {
+        return todoService.getSingleTodo(id);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteTodo (@PathVariable Integer id) {
         todoService.deleteTodo(id);
@@ -30,7 +35,7 @@ public class TodoController {
         return todoService.addNewTodo(todo);
     }
 
-    @PutMapping("/edit/{id}")
+    @PutMapping("/{id}")
     public Todo updateTodo (@RequestBody Todo todo, @PathVariable Integer id) {
         return todoService.updateTodo(todo, id);
     }

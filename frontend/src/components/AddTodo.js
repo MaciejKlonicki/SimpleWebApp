@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Input, Label } from 'reactstrap';
 
 
-const AddTodo = () =>{
+const AddTodo = () => {
     
     const initialFormState = {
         title: '',
@@ -66,7 +66,6 @@ const AddTodo = () =>{
             </Container>
         </div>
     )
-
 }
 
 export default AddTodo;
